@@ -15,14 +15,112 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+
+
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <!-- There should be only one element on a page with role of banner -->
+        <header role="banner" aria-labelledby="banner-desc">
+
+            <!-- Skip link should be the first thing on the page -->
+            <p>
+              <a href="#content">skip to main content</a>
+            </p>
+
+            <!-- On the home page, put the site title in an H1. Other pages it can be a paragraph.
+                 Notice the use of the id associating the text with the landmark role. This is done throughout this example page.
+                 Screen readers seem to be ignoring the labelledby, unfortunately, but those that support aria do tend to read
+                 the first heading when navigated to via landmark. -->
+            <p id="banner-desc">HTML5 Examples</p>
+
+            <!-- Using a label. Placeholder text cannot be used in place of a label.
+                 We can hide the label off-left for aesthetics, but keep it accessible. -->
+            <form method="get" role="search" aria-labelledby="search-desc">
+              <label for="s" class="visually-hidden">Search this <span id="search-desc">site</span></label>
+              <input type="text" name="s" id="s" placeholder="Search this site" value="">
+              <input type="submit" value="Search">
+            </form>
+
+        </header>
+
+        <nav role="navigation" aria-labelledby="sitenav-desc">
+        <h2 class="visually-hidden"><span id="sitenav-desc">Site</span> Navigation</h2>
+        <ul>
+          <li>...</li>
+          <li>...</li>
+          <li>...</li>
+        </ul>
+        </nav>
+
+        <nav role="navigation" aria-labelledby="sectionnav-desc">
+        <h2 class="visually-hidden"><span id="sectionnav-desc">Section</span> Navigation</h2>
+        <ul>
+          <li>...</li>
+          <li>...</li>
+          <li>...</li>
+        </ul>
+        </nav>
+
+        <!-- There should be only one main landmark. -->
+        <main id="content" role="main" aria-labelledby="main-desc" tabindex="-1">
+
+        <!-- The main content should be introduced by an H1 heading and the text should mirror the page title. -->
+        <h1 id="main-desc">HTML5 Page with ARIA Landmarks</h1>
+        <p>Some content</p>
+
+        <article>
+         <header>
+           <h2>Article Title 1</h2>
+         </header>
+         <p>Content 1</p>
+         <footer>
+           Footnote 1
+         </footer>
+        </article>
+
+        <article>
+         <header>
+           <h2>Article Title 2</h2>
+         </header>
+         <p>Content 2</p>
+         <footer>
+           Footnote 2
+         </footer>
+        </article>
+
+        </main>
+
+        <!-- There can be many 'complementary' regions -->
+        <aside role="complementary" aria-labelledby="comp-desc">
+            <!-- Notice we do not break the heading order. -->
+            <h3 id="comp-desc">Related, Less Important, or Supporting Content</h3>
+            <p>...</p>
+        </aside>
+
+        <section role="complementary" aria-labelledby="subscribe-desc">
+        <h3 id="subscribe-desc">Subscribe to Us</h3>
+        <!-- Forms with role set to form can help screen reader users quickly locate key pieces of interactive content. -->
+        <form action="/index.php" method="get" role="form" aria-labelledby="subscribe-desc">
+            <label class="visually-hidden">Your Name</label>
+            <label for="name">Name</label>
+            <input type="text" placeholder="Name" id="name" name="name">
+            <label for="email">Email</label>
+            <!-- in mobile browsers, using type of email can make input easier by altering the keyboard to include an 'at' symbol -->
+            <input type="email" placeholder="Email" id="email" name="email">
+            <button>Subscribe</button>
+        </form>
+        </section>
+
+        <!-- There should be only one content information section -->
+        <footer role="contentinfo" aria-labelledby="footer-desc">
+            <p id="footer-desc">footer content</p>
+        </footer>
+
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
@@ -38,5 +136,12 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
+
+        <!-- Accessability: add aria roles to heading for JAWS <  JAWS 15 | removed its broken implementation of the outline algorithm.  -->
+        <script type="text/javascript">
+            (function(a,l,e,v){for(;--a;)for(l=document.getElementsByTagName('h'+a),e=l.length;v=l[--e];v.setAttribute('role','heading'))v.setAttribute('aria-level',a)})(8);
+        </script>
+
+
     </body>
 </html>
