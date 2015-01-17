@@ -1,0 +1,22 @@
+{
+  "name": "wc3",
+  "version": "1.0.0",
+  "description": "Example of html5 web standards",
+  "main": "index.html",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellonewman81/html5-standards.git"
+  },
+  "author": "Andrew Newman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellonewman81/html5-standards/issues"
+  },
+  "homepage": "https://github.com/hellonewman81/html5-standards"
+}
